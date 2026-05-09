@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffffff",
+                    "outline": "#8e9192",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e1e2eb",
+                    "surface-dim": "#10131a",
+                    "surface-container": "#1d2026",
+                    "surface-container-high": "#272a31",
+                    "surface-tint": "#c6c6c7",
+                    "on-surface-variant": "#c4c7c8",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-container-highest": "#32353c",
+                    "on-primary-fixed-variant": "#454747",
+                    "surface": "#10131a",
+                    "primary-container": "#e2e2e2",
+                    "surface-container-low": "#191c22",
+                    "on-secondary": "#213145",
+                    "outline-variant": "#444748",
+                    "on-surface": "#e1e2eb",
+                    "inverse-on-surface": "#2e3037",
+                    "surface-variant": "#32353c",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "primary-fixed": "#e2e2e2",
+                    "surface-bright": "#363940",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "tertiary-container": "#d8e3fb",
+                    "on-primary": "#2f3131",
+                    "inverse-primary": "#5d5f5f",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "on-tertiary-fixed": "#111c2d",
+                    "on-tertiary-container": "#5a6579",
+                    "on-secondary-container": "#a9bad3",
+                    "on-primary-fixed": "#1a1c1c",
+                    "surface-container-lowest": "#0b0e14",
+                    "on-background": "#e1e2eb",
+                    "secondary": "#b7c8e1",
+                    "on-tertiary": "#263143",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary": "#ffffff",
+                    "tertiary-fixed": "#d8e3fb",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "background": "#10131a",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "on-primary-container": "#636565",
+                    "secondary-container": "#3a4a5f",
+                    "tertiary-fixed-dim": "#bcc7de",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "margin": "48px",
+                    "unit": "4px",
+                    "section-gap": "80px"
+            },
+            "fontFamily": {
+                    "mono-code": ["Space Grotesk"],
+                    "headline-md": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "mono-label": ["Space Grotesk"],
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "mono-label": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .founder-card:hover {
+            border-color: #3b82f6; /* Subtle blue as requested */
+        }
+        .terminal-cursor::after {
+            content: '_';
+            animation: blink 1s infinite step-start;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-2xl text-primary docked full-width top-0 sticky border-b border-white/10 z-50">
+<div class="flex justify-between items-center px-margin h-16 w-full max-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">NEURAL_ARCH</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-outline font-mono-label hover:text-primary hover:border-white/30 transition-all duration-300" href="#">Research</a>
+<a class="text-outline font-mono-label hover:text-primary hover:border-white/30 transition-all duration-300" href="#">Methodology</a>
+<a class="text-outline font-mono-label hover:text-primary hover:border-white/30 transition-all duration-300" href="#">Archive</a>
+<a class="text-primary border-b border-primary pb-1 font-mono-label transition-all duration-300 scale-95" href="#">About</a>
+<a class="text-outline font-mono-label hover:text-primary hover:border-white/30 transition-all duration-300" href="#">Careers</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center glass-border bg-white/5 px-4 py-1.5 rounded-sm">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<span class="text-outline font-mono-label text-xs terminal-cursor">SEARCH_RESOURCES</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 font-mono-label uppercase tracking-widest text-xs hover:opacity-90 transition-opacity">
+                    Console
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin">
+<!-- Our Methodology -->
+<section class="py-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-gutter">
+<div class="max-w-2xl">
+<span class="font-mono-label text-primary uppercase mb-4 block tracking-[0.2em]">[ SYSTEM_CORE_LOGIC ]</span>
+<h1 class="font-headline-xl text-headline-xl mb-6">Our Methodology</h1>
+<p class="font-body-lg text-body-lg text-outline">NEURAL_ARCH operates on a zero-trust verification framework. Every tool in our repository undergoes a rigorous, deterministic auditing cycle before public documentation.</p>
+</div>
+<div class="font-mono-code text-primary/40 text-xs">VERIFIED_STATUS: SECURE<br/>REF: 0xFF-082-ALPHA</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 1 -->
+<div class="glass-border p-8 bg-surface-container-lowest/50 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-mono-code text-white/5 text-4xl font-bold">01</div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Architecture Review</h3>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">Deconstructing neural layers and model weight distributions to verify claims of efficiency and proprietary logic. We prioritize transparency in inference engines.</p>
+</div>
+<!-- Step 2 -->
+<div class="glass-border p-8 bg-surface-container-lowest/50 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-mono-code text-white/5 text-4xl font-bold">02</div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-variation-settings: 'FILL' 0;">shield_lock</span>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Security Auditing</h3>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">End-to-end data flow analysis to ensure zero-leakage protocols. Our security core stress-tests the API hooks and local-storage encryption standards.</p>
+</div>
+<!-- Step 3 -->
+<div class="glass-border p-8 bg-surface-container-lowest/50 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-mono-code text-white/5 text-4xl font-bold">03</div>
+<span class="material-symbols-outlined text-primary mb-6" style="font-variation-settings: 'FILL' 0;">speed</span>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Performance Benchmarking</h3>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">Real-world computational overhead assessment. We measure token latency, GPU utilization, and actual output accuracy across standardized datasets.</p>
+</div>
+</div>
+</section>
+<!-- The Founders -->
+<section class="py-section-gap border-t border-white/5">
+<div class="mb-16">
+<span class="font-mono-label text-primary uppercase mb-4 block tracking-[0.2em]">[ LEADERSHIP_NODES ]</span>
+<h2 class="font-headline-lg text-headline-lg">The Founders</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Founder 1 -->
+<div class="founder-card glass-border bg-surface-container-lowest p-6 transition-all duration-300 flex flex-col">
+<div class="aspect-square mb-6 overflow-hidden bg-surface-container-high relative">
+<img alt="Alex Thorne" class="w-full h-full object-cover grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl542GdeHMkaBsopcUr36aJ1lUUSfpyvw7nGNac4jwR-XpgvY1vweacYZ0dT6uUriRdbpOt3hnl7Dpzz71CgBc83Xrol5QJMFarePuxdS9H28ko1uevZ5MC9dp1CamHmxRnnhNmDP5_Nv87p2E60GOkl77bKCS2d5Mb9sICZqNXQ8lhifLfo2NNehmMFh9U1Wi1l3BvPYaCzf_S4_rQJmk3utD8BdmyGYzQ81O-MN1IEdJyN_BqKcybU1bzP3TWq1jm2JK1NSIPDC8"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Alex Thorne</h4>
+<p class="font-mono-label text-outline uppercase text-[10px] tracking-widest mb-4">Head of AI Research</p>
+<p class="font-body-sm text-body-sm text-outline-variant mb-6">Pioneer in decentralized LLM architectures and former lead of the Synthetix Ethics Committee.</p>
+</div>
+<div class="flex gap-4 border-t border-white/5 pt-4">
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+</div>
+</div>
+<!-- Founder 2 -->
+<div class="founder-card glass-border bg-surface-container-lowest p-6 transition-all duration-300 flex flex-col">
+<div class="aspect-square mb-6 overflow-hidden bg-surface-container-high relative">
+<img alt="Elena Rodriguez" class="w-full h-full object-cover grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVAeIwDWy-eI9XQlWaqOclZztk-epHKtA2q1CWYY9o5hYJEdXCDGR9IWBO43-zw1daU1yW5AiyiM8wtHKoP4Ghz2cKpoemzuLs0ryNSID-f1mG0aP4OV1fJZAzzjbux5zDxccI6QklgTcXAlDDwySgjNJJ7ZS1pZHdxyhLmsIX-EH6ZcCw32obh-QhjhuoQo0gdzXzWQY9UtjH5-5ZiraFy9PPZIJa0LTmAR71eo_guletUuy8cSHRV48rm5mzwwg1Idi288L7it-p"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Elena Rodriguez</h4>
+<p class="font-mono-label text-outline uppercase text-[10px] tracking-widest mb-4">Chief Systems Architect</p>
+<p class="font-body-sm text-body-sm text-outline-variant mb-6">Expert in low-latency infrastructure design and cryptographic verification for autonomous systems.</p>
+</div>
+<div class="flex gap-4 border-t border-white/5 pt-4">
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+</div>
+</div>
+<!-- Founder 3 -->
+<div class="founder-card glass-border bg-surface-container-lowest p-6 transition-all duration-300 flex flex-col">
+<div class="aspect-square mb-6 overflow-hidden bg-surface-container-high relative">
+<img alt="Julian Voss" class="w-full h-full object-cover grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdOal0CtGIzS1yCQ-RHkY7PlDHIu3LLF6nIowuPeLlR8fTlUiUfyWceI6a-u2AJKNNBfGsK5tC5KVJBwkTUE2q4X9jphDc_jmOfeN4M1Xvy971UbRhT0B7B3JAPbQMTVeSv2OfkbNMdN54WDW5bZaBeejKSB3LP7_iQmMactCGKvCIae8Y4qNSHxVanIB1QK5sgUeVixw9vemBAkSlYdi5oNPyl_yv2jY__ZmmQHtyxTPXvBEIZ64k7ZOoA79CtIvLAbEKvAQGVQVL"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary mb-1">Julian Voss</h4>
+<p class="font-mono-label text-outline uppercase text-[10px] tracking-widest mb-4">Strategic Director</p>
+<p class="font-body-sm text-body-sm text-outline-variant mb-6">Specializing in the intersection of AI governance and global compute resource allocation.</p>
+</div>
+<div class="flex gap-4 border-t border-white/5 pt-4">
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap">
+<div class="glass-border bg-white/5 p-12 text-center">
+<span class="font-mono-label text-primary uppercase mb-6 block">CONTRIBUTE_TO_OPEN_RESEARCH</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Access the Technical Archive</h2>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 font-mono-label uppercase tracking-widest text-xs">Request Entry</button>
+<button class="glass-border text-primary px-10 py-4 font-mono-label uppercase tracking-widest text-xs hover:bg-white/5 transition-colors">Documentation</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin py-section-gap w-full max-w-container-max mx-auto">
+<div>
+<div class="font-mono-label text-mono-label font-bold uppercase text-primary mb-6">NEURAL ARCHITECTURES</div>
+<p class="font-body-sm text-body-sm text-outline max-w-xs">A specialized research foundation dedicated to the rigorous auditing of artificial intelligence systems and architectural standards.</p>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-primary font-bold">RESOURCES</span>
+<a class="font-mono-label text-mono-label text-outline hover:text-primary transition-colors duration-200" href="#">GitHub</a>
+<a class="font-mono-label text-mono-label text-outline hover:text-primary transition-colors duration-200" href="#">Documentation</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-primary font-bold">LEGAL</span>
+<a class="font-mono-label text-mono-label text-outline hover:text-primary transition-colors duration-200" href="#">Ethics</a>
+<a class="font-mono-label text-mono-label text-outline hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+<a class="font-mono-label text-mono-label text-outline hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+</div>
+<div class="md:col-span-2 mt-12 border-t border-white/5 pt-8">
+<p class="font-mono-label text-mono-label text-outline/50 uppercase tracking-widest">© 2024 NEURAL ARCHITECTURES FOUNDATION. VERIFIED RESEARCH CORE.</p>
+</div>
+</div>
+</footer>
+</body></html>

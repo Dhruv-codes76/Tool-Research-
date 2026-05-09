@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI TOOLS RESEARCH — Technical Analysis &amp; Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Manrope:wght@600;700&amp;family=Space+Grotesk:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ffffff",
+                        "secondary-container": "#3a4a5f",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed-variant": "#454747",
+                        "inverse-on-surface": "#2e3037",
+                        "primary-container": "#e2e2e2",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "on-tertiary-fixed": "#111c2d",
+                        "tertiary-fixed-dim": "#bcc7de",
+                        "tertiary-container": "#d8e3fb",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-tertiary": "#263143",
+                        "inverse-primary": "#5d5f5f",
+                        "surface": "#10131a",
+                        "on-error": "#690005",
+                        "on-background": "#e1e2eb",
+                        "surface-container-high": "#272a31",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-tint": "#c6c6c7",
+                        "surface-container-lowest": "#0b0e14",
+                        "on-tertiary-container": "#5a6579",
+                        "inverse-surface": "#e1e2eb",
+                        "surface-variant": "#32353c",
+                        "on-primary": "#2f3131",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-primary-container": "#636565",
+                        "on-surface": "#e1e2eb",
+                        "on-secondary": "#213145",
+                        "tertiary": "#ffffff",
+                        "error-container": "#93000a",
+                        "surface-container": "#1d2026",
+                        "primary-fixed": "#e2e2e2",
+                        "on-secondary-container": "#a9bad3",
+                        "secondary": "#b7c8e1",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "surface-container-highest": "#32353c",
+                        "surface-dim": "#10131a",
+                        "outline": "#8e9192",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#d8e3fb",
+                        "background": "#10131a",
+                        "surface-container-low": "#191c22",
+                        "surface-bright": "#363940",
+                        "outline-variant": "#444748"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "margin": "48px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "mono-code": ["Space Grotesk"],
+                        "mono-label": ["Space Grotesk"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "mono-label": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #10131a;
+            color: #e1e2eb;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex justify-between items-center w-full px-margin py-unit h-16 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md tracking-tighter text-primary">AI TOOLS RESEARCH</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold border-b border-primary pb-1 font-mono-label text-mono-label transition-all duration-200" href="#">Research</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary hover:border-white/30 transition-all duration-200" href="#">Archive</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary hover:border-white/30 transition-all duration-200" href="#">Manifesto</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary hover:border-white/30 transition-all duration-200" href="#">Labs</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap px-margin max-w-container-max mx-auto">
+<!-- Featured Hero Section -->
+<section class="mb-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7">
+<div class="flex items-center gap-2 mb-gutter">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-mono-label text-mono-label text-primary uppercase tracking-[0.2em]">Annual Publication</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-gutter">State of Open Source AI 2024</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+                        A comprehensive technical audit of the open-source ecosystem. This report decodes architecture shifts, compute efficiency benchmarks, and the rising influence of decentralized training clusters. Verified by 40+ independent research labs.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-mono-label text-mono-label uppercase tracking-widest hover:opacity-90 transition-all active:scale-95">
+                            Access Full Report
+                        </button>
+<button class="border border-white/20 text-primary px-8 py-4 font-mono-label text-mono-label uppercase tracking-widest hover:bg-white/5 transition-all">
+                            Methodology
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square glass-card overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale opacity-80" data-alt="A highly detailed 3D technical schematic of an artificial neural network visualized as a glowing crystalline structure. The aesthetic is ultra-minimalist, dominated by a deep black background with crisp white architectural lines and microscopic data nodes. Sharp lighting from the side highlights the complex geometric layers, creating a sophisticated command-center atmosphere." src="https://lh3.googleusercontent.com/aida/ADBb0ujCwaRqDw_U19_GhHnP362NPEvAlpZk31AMfttn14lWfLQfVhde1x1fSsXakr9W08kgY1xrLpB1Ut6FigpS52BnaF6GTU6eKYOjqcfPcgu0D52EdwcXfsPAa-l87eXEBfvv42NkWI2350CaV8ol1ZWMMrsONDBRyyluvu91boDFiV4ytkCiMtLm6jlRcc8-pG5mel3ZwanjTjcZ9pHrwMpyR3jVdx0gwjGfC7Ay9HHm8av8VQCABUrghkFl"/>
+</div>
+<div class="absolute -bottom-6 -left-6 glass-card p-6 hidden md:block">
+<p class="font-mono-label text-mono-label text-primary mb-2">VERIFIED_HASH</p>
+<p class="font-mono-code text-mono-code text-on-surface-variant">0x882A...F91C</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="mb-gutter">
+<div class="glass-card flex items-center px-6 py-4">
+<span class="material-symbols-outlined text-on-surface-variant mr-4" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-primary font-mono-label text-mono-label w-full placeholder:text-on-surface-variant/40" placeholder="QUERY_RESEARCH_DATABASE_" type="text"/>
+<div class="flex items-center gap-4 border-l border-white/10 pl-6 ml-4">
+<span class="font-mono-label text-mono-label text-on-surface-variant">FILTERS:</span>
+<button class="text-primary font-mono-label text-mono-label border-b border-primary">ALL</button>
+<button class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary transition-all">CORE</button>
+<button class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary transition-all">PERIPHERAL</button>
+</div>
+</div>
+</section>
+<!-- Article Feed -->
+<section class="max-w-4xl mx-auto">
+<div class="flex flex-col gap-0">
+<!-- Article 1 -->
+<article class="group py-12 border-b border-white/5 hover:bg-white/[0.01] transition-all px-4 -mx-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant">[2024-05-12]</span>
+</div>
+<div class="md:col-span-3">
+<div class="flex gap-3 mb-3">
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">LLM</span>
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Architecture</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">Sparse Attention Mechanisms in Sub-10B Parameter Models</h2>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+                                An analysis of inference efficiency gains through sparse kernels. We compare state-of-the-art token pruning techniques against traditional dense attention layers in resource-constrained environments.
+                            </p>
+<a class="inline-flex items-center gap-2 text-primary font-mono-label text-mono-label group/link hover:opacity-80 transition-all" href="#">
+                                READ_ANALYSIS
+                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article 2 with Image -->
+<article class="group py-12 border-b border-white/5 hover:bg-white/[0.01] transition-all px-4 -mx-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant">[2024-04-28]</span>
+</div>
+<div class="md:col-span-3">
+<div class="flex gap-3 mb-3">
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Vision</span>
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Verification</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">Diffusion Robustness and Watermarking Standards</h2>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                                        Evaluating the resilience of latent diffusion models against adversarial noise attacks and the implementation of cryptographically secure invisible watermarking.
+                                    </p>
+</div>
+<div class="glass-card aspect-video overflow-hidden">
+<img alt="" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-500" data-alt="A macro-photographic visual of digital distortion and high-fidelity noise patterns. The image captures abstract glitches appearing as structured vertical and horizontal lines in a spectrum of monochrome grays and stark whites. The mood is clinical and analytical, representing data corruption and verification processes in a high-tech dark environment." src="https://lh3.googleusercontent.com/aida/ADBb0ujjmarG1KCCo1RngqEYICe38Q25xNPh7M-AswtXoFfCBeAPj2jiUZl06_GLmN4qnnJSOY3auieFiBgj4egCwuv9k581quYBv6u67B3Bm5a-qMkHRiJRE1Rq21FH2OJgMTcY4ry2itJcVuOjDxTsSMv_zMrgO5lx-v5YkP6PzuJdiyuXCMcW6RpZSuebaRmdgiSjJYheseAnnACGEz2AoIncZ9CaRIVDcMR7MFkwqQnaR7wKr0ds48ThELS9"/>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-mono-label text-mono-label group/link hover:opacity-80 transition-all" href="#">
+                                READ_ANALYSIS
+                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="group py-12 border-b border-white/5 hover:bg-white/[0.01] transition-all px-4 -mx-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant">[2024-04-15]</span>
+</div>
+<div class="md:col-span-3">
+<div class="flex gap-3 mb-3">
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Audio</span>
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Signal</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">Neural Synthesis of Spatial Audio Landscapes</h2>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+                                Research into generative binaural audio. How transformer-based architectures are redefining 3D soundstage reconstruction from monophonic source data without manual engineering.
+                            </p>
+<a class="inline-flex items-center gap-2 text-primary font-mono-label text-mono-label group/link hover:opacity-80 transition-all" href="#">
+                                READ_ANALYSIS
+                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Article 4 -->
+<article class="group py-12 border-b border-white/5 hover:bg-white/[0.01] transition-all px-4 -mx-4">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<span class="font-mono-label text-mono-label text-on-surface-variant">[2024-03-30]</span>
+</div>
+<div class="md:col-span-3">
+<div class="flex gap-3 mb-3">
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Systems</span>
+<span class="bg-[#1E293B] text-primary font-mono-label text-[10px] px-2 py-1 uppercase tracking-tighter">Hardware</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+<div class="order-2 lg:order-1 glass-card aspect-video overflow-hidden">
+<img alt="" class="w-full h-full object-cover grayscale opacity-50 transition-all duration-500" data-alt="An intricate, close-up photograph of a high-performance compute cluster server rack. The server components are illuminated by cold, blueish-white status LEDs that pierce through the darkness of a technical cleanroom. The composition emphasizes the repetitive, rhythmic structure of hardware modules and the immense scale of industrial AI infrastructure." src="https://lh3.googleusercontent.com/aida/ADBb0uiKozNcfZ6pe2lPdSZWmtZ_je1WddKaEQ2LEzy1emq6iQGHCKAotBvWKsynoLww0LB9dCv5RXkmnvV1PliiwI76y235yANV1Bjrpwrtf-SWpnQS2wzYbK9TZxO7fYF5s5tMKMcj2XSoQahp1vFZUTDErS1OOv6a4A2emLTYou_c6cabQ6aOnGouRr1R5evVt2PG9EsFd4Fz8evWgTDMsDFQe1rFseupBsryH78vMQmP9ykT6mFUNeuOfjKi"/>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">Quantization Benchmarks on ARM Architectures</h2>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                                        Empirical results of 4-bit and 8-bit quantization on Apple M-series and Ampere Altra chips. A guide to deploying large language models on edge-compute hardware.
+                                    </p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-mono-label text-mono-label group/link hover:opacity-80 transition-all" href="#">
+                                READ_ANALYSIS
+                                <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-section-gap flex justify-between items-center border-t border-white/10 pt-8">
+<button class="flex items-center gap-2 text-on-surface-variant font-mono-label text-mono-label hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+                    PREV_PAGE
+                </button>
+<div class="flex gap-6 font-mono-label text-mono-label text-on-surface-variant">
+<span class="text-primary">01</span>
+<span class="hover:text-primary cursor-pointer">02</span>
+<span class="hover:text-primary cursor-pointer">03</span>
+<span>...</span>
+<span class="hover:text-primary cursor-pointer">09</span>
+</div>
+<button class="flex items-center gap-2 text-on-surface-variant font-mono-label text-mono-label hover:text-primary transition-all">
+                    NEXT_PAGE
+                    <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-gutter max-w-container-max mx-auto">
+<div class="font-mono-label text-mono-label text-primary mb-6 md:mb-0">AI TOOLS RESEARCH</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left mb-6 md:mb-0">
+                © 2024 AI TOOLS RESEARCH — VERIFIED TECHNICAL ANALYSIS
+            </div>
+<div class="flex gap-gutter">
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary underline-offset-4 hover:underline transition-colors duration-200" href="#">Methodology</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary underline-offset-4 hover:underline transition-colors duration-200" href="#">Data Sources</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary underline-offset-4 hover:underline transition-colors duration-200" href="#">API Access</a>
+<a class="text-on-surface-variant font-mono-label text-mono-label hover:text-primary underline-offset-4 hover:underline transition-colors duration-200" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

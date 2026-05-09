@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#181e8b",
+                    "inverse-on-surface": "#2d3037",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#363940",
+                    "surface-dim": "#101319",
+                    "secondary-container": "#2da37b",
+                    "primary-fixed-dim": "#bec2ff",
+                    "surface-variant": "#32353b",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#003121",
+                    "inverse-primary": "#4b53bb",
+                    "secondary": "#6cdaaf",
+                    "surface": "#101319",
+                    "background": "#0b0e14",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "inverse-surface": "#e1e2eb",
+                    "primary-container": "#8b93ff",
+                    "secondary-fixed-dim": "#6cdaaf",
+                    "surface-container-lowest": "#0b0e14",
+                    "primary": "#bec2ff",
+                    "outline": "#464652",
+                    "on-error": "#690005",
+                    "on-secondary": "#003827",
+                    "on-primary-fixed-variant": "#3239a2",
+                    "secondary-fixed": "#89f7ca",
+                    "tertiary-fixed": "#ffdbcb",
+                    "on-surface-variant": "#c6c5d5",
+                    "on-tertiary-fixed-variant": "#6d391d",
+                    "on-primary-fixed": "#00016d",
+                    "surface-container": "#1d2026",
+                    "on-background": "#e1e2eb",
+                    "on-tertiary": "#512308",
+                    "on-tertiary-fixed": "#341100",
+                    "on-primary-container": "#1d238f",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#191c22",
+                    "tertiary": "#ffb692",
+                    "on-surface": "#e1e2eb",
+                    "primary-fixed": "#e0e0ff",
+                    "on-secondary-fixed": "#002115",
+                    "on-tertiary-container": "#56270c",
+                    "surface-container-highest": "#32353b",
+                    "surface-container-high": "#272a30",
+                    "surface-tint": "#bec2ff",
+                    "tertiary-container": "#d28c6a",
+                    "outline-variant": "#464652"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1.5rem",
+                    "3xl": "2rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1rem",
+                    "stack-md": "1rem",
+                    "margin-page": "1.25rem",
+                    "stack-lg": "1.5rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "h2": ["Plus Jakarta Sans"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h1": ["Plus Jakarta Sans"],
+                    "display": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "h2": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h1": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .glass-search {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tool-card {
+            background: #191c22;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            background: #1d2026;
+            border-color: rgba(190, 194, 255, 0.2);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .stellar-gradient {
+            background: linear-gradient(135deg, #1d2026 0%, #101319 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-background/80 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50">
+<div class="flex items-center justify-between px-4 md:px-8 h-16 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-10">
+<span class="text-xl font-extrabold tracking-tighter text-primary">ToolRepo</span>
+<nav class="hidden md:flex gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-sm transition-all" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-white font-medium text-sm transition-colors" href="#">Trending</a>
+<a class="text-on-surface-variant hover:text-white font-medium text-sm transition-colors" href="#">Collections</a><a class="text-on-surface-variant hover:text-white font-medium text-sm transition-colors" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-white/5 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<div class="max-w-[1440px] mx-auto flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-full border-r border-white/5 w-64 hidden md:block bg-background sticky top-16">
+<div class="flex flex-col gap-1 py-8">
+<div class="px-6 mb-4">
+<span class="text-[10px] uppercase font-bold tracking-[0.15em] text-outline">Categories</span>
+</div>
+<a class="bg-primary/10 text-primary border-r-2 border-primary font-semibold px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-sm">All Tools</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+<span class="text-sm">Web App</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-sm">MCP Servers</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="android">android</span>
+<span class="text-sm">Android</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="desktop_windows">desktop_windows</span>
+<span class="text-sm">Desktop</span>
+</a>
+<div class="px-6 mt-10 mb-4">
+<span class="text-[10px] uppercase font-bold tracking-[0.15em] text-outline">Work</span>
+</div>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="construction">construction</span>
+<span class="text-sm">Utilities</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-sm">Productivity</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="text-sm">Development</span>
+</a>
+<a class="text-on-surface-variant hover:bg-white/5 hover:text-white px-6 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-sm">AI</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 min-w-0 bg-background px-8 md:px-12 py-16">
+<!-- Hero Section -->
+<section class="max-w-4xl mx-auto mb-20">
+<div class="text-center mb-12">
+<h1 class="text-white text-[44px] md:text-[56px] font-display leading-[1.1] mb-6 tracking-tight">Find the perfect tool for your workflow.</h1>
+<p class="text-on-surface-variant text-lg opacity-80 max-w-2xl mx-auto font-medium">The curated directory for open-source utilities and developer servers.</p>
+</div>
+<!-- Main Search Bar (Glassmorphism) -->
+<div class="relative group max-w-2xl mx-auto">
+<div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</div>
+<input class="w-full h-16 pl-14 pr-20 glass-search rounded-2xl text-white placeholder-on-surface-variant/40 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all text-body-lg" placeholder='Search tools (e.g., "MCP servers")' type="text"/>
+<div class="absolute inset-y-0 right-6 flex items-center">
+<div class="hidden sm:flex items-center gap-1.5 border border-white/10 rounded-lg px-2.5 py-1 bg-white/5">
+<span class="text-[10px] font-bold text-outline">CMD K</span>
+</div>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-3 mt-10 justify-center">
+<button class="bg-white/5 hover:bg-white/10 transition-all px-6 py-2.5 rounded-full border border-white/10 text-xs font-bold text-on-surface flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div> Web App
+                    </button>
+<button class="bg-primary/10 hover:bg-primary/20 transition-all px-6 py-2.5 rounded-full border border-primary/20 text-xs font-bold text-primary flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div> MCP
+                    </button>
+<button class="bg-white/5 hover:bg-white/10 transition-all px-6 py-2.5 rounded-full border border-white/10 text-xs font-bold text-on-surface flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div> Android
+                    </button>
+<button class="bg-white/5 hover:bg-white/10 transition-all px-6 py-2.5 rounded-full border border-white/10 text-xs font-bold text-on-surface flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-outline"></div> PC App
+                    </button>
+</div>
+</section>
+<!-- Grid Header -->
+<div class="flex items-center justify-between mb-10 pb-4 border-b border-white/5">
+<h2 class="text-white text-2xl font-display font-bold">Recent Submissions</h2>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Sort:</span>
+<button class="text-xs font-bold text-white flex items-center gap-1 hover:text-primary transition-colors">
+                        Relevance <span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Discovery Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Tool Card 1 -->
+<div class="tool-card p-8 rounded-2xl flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="terminal">terminal</span>
+</div>
+<div>
+<h3 class="text-white text-xl font-bold cursor-pointer hover:text-primary transition-colors font-display">Postgres-MCP</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/80 bg-primary/10 px-2.5 py-1 rounded-md">MCP Server</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-white/5 px-2.5 py-1 rounded-md">Database</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-yellow-500" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-white">1.2k</span>
+</div>
+</div>
+<p class="text-on-surface-variant/80 text-body-md line-clamp-2 leading-relaxed">
+                        A robust Model Context Protocol server that allows AI agents to directly query and analyze PostgreSQL databases with safety-first controls.
+                    </p>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex items-center gap-6">
+<span class="text-[11px] font-bold text-outline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#3178c6]"></span> TypeScript
+                            </span>
+<span class="text-[11px] font-bold text-outline">Updated 2h ago</span>
+</div>
+<button class="text-xs font-bold text-primary hover:gap-2 flex items-center gap-1.5 transition-all">
+                            View Details <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Tool Card 2 -->
+<div class="tool-card p-8 rounded-2xl flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield">shield</span>
+</div>
+<div>
+<h3 class="text-white text-xl font-bold cursor-pointer hover:text-primary transition-colors font-display">VaultWarden-OS</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/80 bg-primary/10 px-2.5 py-1 rounded-md">Web App</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-white/5 px-2.5 py-1 rounded-md">Security</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-yellow-500" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-white">24.5k</span>
+</div>
+</div>
+<p class="text-on-surface-variant/80 text-body-md line-clamp-2 leading-relaxed">
+                        Alternative implementation of the Bitwarden API written in Rust and compatible with upstream Bitwarden clients, perfect for self-hosting.
+                    </p>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex items-center gap-6">
+<span class="text-[11px] font-bold text-outline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#dea584]"></span> Rust
+                            </span>
+<span class="text-[11px] font-bold text-outline">Updated 1d ago</span>
+</div>
+<button class="text-xs font-bold text-primary hover:gap-2 flex items-center gap-1.5 transition-all">
+                            View Details <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Tool Card 3 -->
+<div class="tool-card p-8 rounded-2xl flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<h3 class="text-white text-xl font-bold cursor-pointer hover:text-primary transition-colors font-display">KubeViz-Desktop</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/80 bg-primary/10 px-2.5 py-1 rounded-md">Desktop</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-white/5 px-2.5 py-1 rounded-md">DevOps</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-yellow-500" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-white">5.8k</span>
+</div>
+</div>
+<p class="text-on-surface-variant/80 text-body-md line-clamp-2 leading-relaxed">
+                        Real-time Kubernetes cluster visualization tool that helps developers understand pod relationships and traffic flow through an intuitive 3D interface.
+                    </p>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex items-center gap-6">
+<span class="text-[11px] font-bold text-outline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#00add8]"></span> Go
+                            </span>
+<span class="text-[11px] font-bold text-outline">Updated 4h ago</span>
+</div>
+<button class="text-xs font-bold text-primary hover:gap-2 flex items-center gap-1.5 transition-all">
+                            View Details <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Tool Card 4 -->
+<div class="tool-card p-8 rounded-2xl flex flex-col gap-6">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h3 class="text-white text-xl font-bold cursor-pointer hover:text-primary transition-colors font-display">Ink-Paper-Reader</h3>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/80 bg-primary/10 px-2.5 py-1 rounded-md">Android</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-white/5 px-2.5 py-1 rounded-md">Utility</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-xl">
+<span class="material-symbols-outlined text-[16px] text-yellow-500" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-white">890</span>
+</div>
+</div>
+<p class="text-on-surface-variant/80 text-body-md line-clamp-2 leading-relaxed">
+                        Minimalist, open-source e-ink document reader optimized for high-contrast displays and focused reading sessions without distractions.
+                    </p>
+<div class="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex items-center gap-6">
+<span class="text-[11px] font-bold text-outline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#f1e05a]"></span> Kotlin
+                            </span>
+<span class="text-[11px] font-bold text-outline">Updated 12h ago</span>
+</div>
+<button class="text-xs font-bold text-primary hover:gap-2 flex items-center gap-1.5 transition-all">
+                            View Details <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Featured Section -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 bg-gradient-to-br from-surface-container-high to-background text-white p-12 rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<span class="text-[10px] bg-primary text-on-primary px-3 py-1 rounded-full font-bold tracking-[0.1em] mb-6 inline-block">FEATURED MCP</span>
+<h2 class="text-[32px] md:text-[44px] leading-tight font-display font-bold mb-6">Master your Cloud Infrastructure with AI-Terraform</h2>
+<p class="text-on-surface-variant text-lg max-w-md opacity-90">Connect your favorite LLM to your Terraform state with this certified MCP server for zero-config infrastructure management.</p>
+</div>
+<div class="mt-10">
+<button class="bg-primary text-on-primary px-10 py-4 font-bold rounded-2xl hover:bg-white hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">Install Now</button>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 top-0 w-1/2 opacity-20 pointer-events-none overflow-hidden">
+<img alt="Infrastructure Visualization" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKBxy_nGWwTdhneIBKCvEFISHjJNbjHbCF37OI7BrX324YgzCV3z3JxlpeCTmEJmd3HjFLPA44goGCVx1pwlqq352OAQdoE_LFrW_6jTRXMENVuD-fuOiNUh6_dDVDDEuc5F8NERlYV2Aq3DD0fR12Eu8G-guih4xklBgb-EigRmKZ0t_FhpK2VDwUR9d9wHLg_vIgldtide-SV0J7DC4G4myLluZ0eIPSg0LeRogmevuy09haLAWZinYLnssB9FQdR9TKGYcH_g"/>
+</div>
+</div>
+<div class="bg-white/5 border border-white/10 p-12 rounded-3xl flex flex-col justify-center items-center text-center hover:bg-white/[0.08] transition-colors">
+<div class="w-24 h-24 rounded-3xl bg-primary/20 mb-8 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary scale-150 text-4xl" data-icon="add_circle">add_circle</span>
+</div>
+<h3 class="text-white text-2xl font-bold mb-4 font-display">Submit a Tool</h3>
+<p class="text-on-surface-variant text-body-md mb-8 opacity-80">Contribute to the largest directory of developer tools.</p>
+<button class="w-full border-2 border-primary/40 text-primary font-bold py-4 hover:bg-primary hover:text-on-primary transition-all rounded-2xl active:scale-95">Get Started</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-background border-t border-white/5 mt-20 w-full">
+<div class="max-w-[1440px] mx-auto px-8 md:px-12 py-20 flex flex-col md:flex-row justify-between items-center gap-12">
+<div class="flex flex-col gap-3 text-center md:text-left">
+<span class="font-extrabold text-primary text-2xl tracking-tighter">ToolRepo</span>
+<span class="text-xs text-outline font-medium opacity-60">© 2024 ToolRepo Open Source Protocol</span>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4 items-center justify-center">
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">Changelog</a>
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>
