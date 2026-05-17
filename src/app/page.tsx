@@ -3,47 +3,45 @@ import Link from 'next/link';
 import { ToolCard } from '@/components/ui/ToolCard';
 import { SearchBar } from '@/components/ui/SearchBar';
 import { CategoryChip } from '@/components/ui/CategoryChip';
+import { getTools } from '@/app/actions/toolActions';
 
-const tools = [
-  {
-    id: 'ghostty',
-    name: 'Ghostty',
-    stars: '12.4k',
-    description: 'A fast, native, feature-rich terminal emulator pushing the boundaries of what is possible.',
-    tags: ['macOS', 'Linux'],
-    icon: 'terminal',
-    color: 'text-primary'
-  },
-  {
-    id: 'ollama',
-    name: 'Ollama',
-    stars: '85k',
-    description: 'Get up and running with large language models locally. Run Llama 3, Mistral, and more.',
-    tags: ['AI', 'macOS'],
-    icon: 'smart_toy',
-    color: 'text-secondary'
-  },
-  {
-    id: 'obs-studio',
-    name: 'OBS Studio',
-    stars: '55k',
-    description: 'Free and open source software for video recording and live streaming.',
-    tags: ['Windows', 'macOS'],
-    icon: 'video_camera_front',
-    color: 'text-tertiary'
-  },
-  {
-    id: 'zed',
-    name: 'Zed',
-    stars: '42k',
-    description: 'A high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.',
-    tags: ['Developer Tools'],
-    icon: 'code',
-    color: 'text-primary-fixed'
-  }
-];
+// Helper function to match existing UI aesthetic defaults
+function mapToolToCard(dbTool: any, index: number) {
+  // Dynamic distribution of preset colors to match previous static design feel
+  const colors = ['text-primary', 'text-secondary', 'text-tertiary', 'text-primary-fixed'];
+  const icons = ['terminal', 'smart_toy', 'video_camera_front', 'code', 'cloud', 'api', 'edit_note'];
 
-export default function HomePage() {
+  // Format 12400 -> 12.4k
+  const formatStars = (num: number) => {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    }
+    return num.toString();
+  };
+
+  // Combine platforms and toolTypes for the UI tags array
+  const tags = [
+    ...dbTool.platforms.map((p: any) => p.name),
+    ...dbTool.toolTypes.map((t: any) => t.name)
+  ];
+
+  return {
+    id: dbTool.id,
+    name: dbTool.name,
+    stars: formatStars(dbTool.stars),
+    description: dbTool.description,
+    tags,
+    icon: icons[index % icons.length], // Cycles through consistent aesthetic icons
+    color: colors[index % colors.length], // Cycles through valid tailwind design colors
+  };
+}
+
+export default async function HomePage() {
+  // FETCH DYNAMIC BACKEND DATA DIRECTLY IN THE COMPONENT!
+  const toolsData = await getTools();
+  
+  const tools = toolsData.map((item: any, index: number) => mapToolToCard(item, index));
+
   return (
     <main className="flex-grow pt-24 pb-32 max-w-container-max mx-auto px-gutter w-full">
       {/* Hero Search Section */}
@@ -65,49 +63,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trending Tools Section */}
+      {/* Tools Section */}
       <section className="mb-20">
         <div className="flex justify-between items-end mb-stack-md border-b border-outline-variant/20 pb-4">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Trending Tools</h2>
+          <h2 className="font-headline-md text-headline-md text-on-surface">Tools</h2>
           <Link className="font-label-sm text-label-sm text-primary hover:text-primary-fixed transition-colors flex items-center gap-1" href="/tools">
             VIEW ALL <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </Link>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tools.map((tool) => (
-            <ToolCard key={tool.id} {...tool} />
-          ))}
+          {tools.length > 0 ? (
+            tools.map((tool) => (
+              <ToolCard key={tool.id} {...tool} />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-10 text-on-surface-variant">
+              No tools found in the database yet.
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Newly Added Section with Skeleton State */}
-      <section>
-        <div className="flex justify-between items-end mb-stack-md border-b border-outline-variant/20 pb-4">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Newly Added</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-surface rounded-2xl border border-outline-variant/10 p-6 animate-pulse flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-surface-container-high"></div>
-                <div className="flex-1">
-                  <div className="h-5 bg-surface-container-high rounded w-24 mb-2"></div>
-                  <div className="h-3 bg-surface-container-high rounded w-12"></div>
-                </div>
-              </div>
-              <div className="space-y-2 flex-grow">
-                <div className="h-3 bg-surface-container-high rounded w-full"></div>
-                <div className="h-3 bg-surface-container-high rounded w-5/6"></div>
-              </div>
-              <div className="mt-4 flex gap-2">
-                <div className="h-5 bg-surface-container-high rounded w-16"></div>
-                <div className="h-5 bg-surface-container-high rounded w-16"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </main>
   );
 }

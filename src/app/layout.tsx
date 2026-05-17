@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import TopNavBar from "@/components/layout/TopNavBar";
-import BottomNavBar from "@/components/layout/BottomNavBar";
-import Footer from "@/components/layout/Footer";
 import { Providers } from "@/components/Providers";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -33,12 +31,9 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-on-surface antialiased">
         <Providers>
-          <TopNavBar />
-          <main className="min-h-screen">
+          <ConditionalLayout>
             {children}
-          </main>
-          <BottomNavBar />
-          <Footer />
+          </ConditionalLayout>
         </Providers>
       </body>
     </html>

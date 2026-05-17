@@ -1,11 +1,15 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
     <footer className="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 mt-auto pb-20 md:pb-0">
       <div className="max-w-container-max mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between items-start gap-stack-md font-body-base text-body-base">
         <div>
-          <div className="font-headline-md text-headline-md font-bold text-on-surface mb-2">AI Tool Research</div>
+          <div className="flex items-center gap-2 mb-2">
+            <Image src="/logo-v2.png" alt="Logo" width={32} height={30} className="object-contain" />
+            <div className="font-headline-md text-headline-md font-bold text-on-surface">AI Tool Research</div>
+          </div>
           <p className="text-on-surface-variant text-sm">© 2026 AI Tool Research. Curated Excellence.</p>
         </div>
         <div className="flex gap-6">
