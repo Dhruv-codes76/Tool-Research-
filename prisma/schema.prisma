@@ -47,6 +47,18 @@ model User {
   tools         Tool[]
 }
 
+model Platform {
+  id    String @id @default(cuid())
+  name  String @unique
+  tools Tool[]
+}
+
+model ToolType {
+  id    String @id @default(cuid())
+  name  String @unique
+  tools Tool[]
+}
+
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -61,7 +73,6 @@ model Tool {
   description String
   repoUrl     String   @unique
   imageUrl    String?
-  category    String
   stars       Int      @default(0)
   forks       Int      @default(0)
   issues      Int      @default(0)
@@ -69,7 +80,11 @@ model Tool {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   published   Boolean  @default(false)
+  lastFetchedAt DateTime @default(now())
   
   userId      String
   user        User     @relation(fields: [userId], references: [id])
+
+  platforms  Platform[]
+  toolTypes  ToolType[]
 }
