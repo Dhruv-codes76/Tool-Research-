@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Tool Research (aitoolresearch.com)
 
-## Getting Started
+A premium, manually curated dictionary for discovering and publishing open-source AI tools.
 
-First, run the development server:
+## Tech Stack
+- **Framework:** Next.js (App Router)
+- **Database ORM:** Prisma
+- **Database:** SQLite (Local) / Supabase PostgreSQL (Production)
+- **Authentication:** Supabase Auth
+- **Styling:** Tailwind CSS / Vanilla CSS
+- **Email:** Resend
 
+## Prerequisites
+- Node.js (v18 or higher)
+- npm, yarn, or pnpm
+
+## Local Setup Instructions
+
+### 1. Clone and Install
+First, navigate to the `tools-section` directory and install the dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd tools-section
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Variables
+Create a `.env.local` file in the `tools-section` directory. Copy the required keys below. Reach out to the repository owner for the actual development secrets.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+# Database
+DATABASE_URL="file:./dev.db"
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL="your-supabase-url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-supabase-anon-key"
+SUPABASE_SERVICE_ROLE_KEY="your-supabase-service-role-key"
 
-## Learn More
+# GitHub Integration
+GITHUB_PERSONAL_ACCESS_TOKEN="your-github-token"
 
-To learn more about Next.js, take a look at the following resources:
+# Email Configuration (Resend)
+RESEND_API_KEY="your-resend-api-key"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Database Setup (Prisma)
+We use Prisma as our ORM with a local SQLite database for development.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run the following commands to initialize and sync your local database:
+```bash
+# Generate the Prisma Client
+npx prisma generate
 
-## Deploy on Vercel
+# Apply migrations to your local SQLite database
+npx prisma migrate dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# (Optional) Seed the database with initial data
+npx prisma db seed
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Run the Development Server
+Start the Next.js development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+## Contribution Guidelines
+- **Curation Policy:** This directory prioritizes high-quality, manual entries over automated scrapers to ensure accuracy and a premium feel.
+- **Agent Guidelines & Rules:** Please read the `.gemini/` directory at the root of the repository before making major architectural changes. It contains project-specific guidelines for UI design, security, SEO, and database migrations.
+- **Commit Format:** We use conventional commits (`feat:`, `fix:`, `chore:`, etc.).
