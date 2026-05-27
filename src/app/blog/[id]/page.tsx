@@ -375,7 +375,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
             }`}
           >
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[18px]">info</span>
               <span className="text-xs font-medium tracking-wide">Introduction</span>
             </div>
           </a>
@@ -390,7 +389,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
             }`}
           >
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[18px]">extension</span>
               <span className="text-xs font-medium tracking-wide">{post.sections.setup.title.split(':')[0] || 'Step 1'}</span>
             </div>
           </a>
@@ -405,7 +403,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ id: string 
             }`}
           >
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[18px]">settings</span>
               <span className="text-xs font-medium tracking-wide">{post.sections.config.title.split(':')[0] || 'Step 2'}</span>
             </div>
           </a>
